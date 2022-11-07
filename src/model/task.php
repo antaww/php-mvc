@@ -9,6 +9,16 @@ class Task
 {
     public int $priority;
     public string $name;
+
+    /**
+     * @param int $priority
+     * @param string $name
+     */
+    public function __construct(int $priority, string $name)
+    {
+        $this->priority = $priority;
+        $this->name = $name;
+    }
 }
 
 class TaskRepository
