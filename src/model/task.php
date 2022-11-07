@@ -24,13 +24,8 @@ class Task
 class TaskRepository
 {
     public PDO $databaseConnection;
-
-    /**
-     * @param DatabaseConnection $databaseConnection
-     */
-    public function __construct(DatabaseConnection $databaseConnection)
-    {
-        $this->databaseConnection = $databaseConnection->getConnection();
+    public function __construct() {
+	    $this->databaseConnection = (new DatabaseConnection())->getConnection();
     }
 
     public function getTasks(): array
