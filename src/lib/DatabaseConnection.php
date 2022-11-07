@@ -6,7 +6,7 @@ use PDO;
 
 class DatabaseConnection
 {
-    private ?PDO $database;
+    private ?PDO $database = null;
 
     public function getConnection(): PDO
     {
