@@ -121,10 +121,16 @@ button {
 	row-gap: 10px;
 }
 
+.list .empty {
+	color: #aeaeae;
+	font-size: 20px;
+	height: 100%;
+	padding-top: 40%;
+	text-align: center;
+}
+
 .list-element {
 	align-items: center;
-	/* background: var(--list-odd-color); */
-	background: attr(data-color, white);
 	cursor: pointer;
 	display: flex;
 	flex-shrink: 0;

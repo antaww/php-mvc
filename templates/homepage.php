@@ -34,23 +34,27 @@
 						>
 							<path
 								d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </form>
-            <div class="list">
-                <?php
-                global $tasks;
-                foreach ($tasks as $task) {
-	                ?>
-	                <div class="list-element" data-priority="<?= $task->get_priority() ?>">
-		                <p class="task-priority"><?= $task->priority ?></p>
-		                <p class="task-name"><?= $task->name ?></p>
+							/>
+						</svg>
+					</button>
+				</div>
+			</form>
+			<div class="list">
+				<?php
+				global $tasks;
+				if (empty($tasks)) {
+					echo '<p class="empty">No tasks to show</p>';
+				}
 
-		                <form action="/index.php?delete" method="post" style="height: 100%;">
-			                <input type="hidden" name="task" value="<?= $task->name ?>"/>
-			                <button class="list-done">
+				foreach ($tasks as $task) {
+					?>
+					<div class="list-element" data-priority="<?= $task->get_priority() ?>">
+						<p class="task-priority"><?= $task->priority ?></p>
+						<p class="task-name"><?= $task->name ?></p>
+
+						<form action="/index.php?delete" method="post" style="height: 100%;">
+							<input type="hidden" name="task" value="<?= $task->name ?>"/>
+							<button class="list-done">
 				                <svg
 					                xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff"
 					                class="bi bi-trash-fill" viewBox="0 0 16 16"
