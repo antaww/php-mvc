@@ -50,8 +50,8 @@
                     $task = $_POST['task'];
                     $priority = $_POST['priority'];
 
-                    $query = $pdo->prepare('INSERT INTO items (title, priority) VALUES (:title, :priority)');
-                    $query->execute(['title' => $task, 'priority' => $priority]);
+                    $query = $pdo->prepare('INSERT INTO items (priority, name) VALUES (:priority, :name)');
+                    $query->execute(['priority' => $priority, 'name' => $task]);
                 }
                 ?>
             </div>
