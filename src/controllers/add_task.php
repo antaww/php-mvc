@@ -1,17 +1,12 @@
 <?php
 namespace App\Controllers\Tasks\Add;
 
-use Application\Model\Todo\Task;
+require_once('src/model/task.php');
+
 use Application\Model\Todo\TaskRepository;
 
-class AddTask
-{
-    function execute(array $input): void
-    {
-        if (isset($input['task']) && isset($input['priority'])) {
-            $task = $input['task'];
-            $priority = $input['priority'];
-            (new TaskRepository())->addTask(new Task($task, $priority));
-        }
-    }
+class AddTask {
+	public function execute(string $task, string $priority): void {
+		(new TaskRepository())->addTask($task, $priority);
+	}
 }
