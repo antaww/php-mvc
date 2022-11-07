@@ -73,14 +73,23 @@ body {
 
 .input {
 	display: flex;
+	gap: 10px;
 }
 
 .input .todo-taker {
 	border: 1px solid var(--border-color);
-	border-right-color: var(--main-color);
 	font-size: 17px;
 	padding: 0.7em;
 	width: 100%;
+}
+
+.error:not(:empty) {
+	background-color: #ffd6d6;
+	border: 1px solid #ffb0b0;
+	border-radius: 3px;
+	color: #e83f3f;
+	font-size: 14px;
+	padding: .5em;
 }
 
 .todo-taker:focus, .priority:focus {
@@ -89,6 +98,7 @@ body {
 }
 
 .input .priority {
+	border: 1px solid var(--border-color);
 	padding: .5rem;
 	width: 40%;
 }
