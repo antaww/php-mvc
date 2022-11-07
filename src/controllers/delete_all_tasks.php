@@ -6,7 +6,6 @@ use Application\Model\Todo\Task;
 
 class DeleteAllTasks {
     function execute(): void {
-        $task_repository = new TaskRepository();
-        $task_repository->deleteAllTasks();
+        (new TaskRepository())->deleteAllTasks();
     }
 }

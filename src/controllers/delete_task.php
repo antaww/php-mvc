@@ -10,8 +10,7 @@ class DeleteTask
     {
         if (isset($input['task'])) {
             $task = $input['task'];
-            $task_repository = new TaskRepository();
-            $task_repository->deleteTask($task);
+            (new TaskRepository())->deleteTask($task);
         }
     }
 }

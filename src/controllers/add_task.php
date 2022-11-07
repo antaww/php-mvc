@@ -11,8 +11,7 @@ class AddTask
         if (isset($input['task']) && isset($input['priority'])) {
             $task = $input['task'];
             $priority = $input['priority'];
-            $task_repository = new TaskRepository();
-            $task_repository->addTask(new Task($task, $priority));
+            (new TaskRepository())->addTask(new Task($task, $priority));
         }
     }
 }
