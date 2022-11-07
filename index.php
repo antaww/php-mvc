@@ -11,6 +11,7 @@ use App\Controllers\Tasks\Add\AddTask;
 use App\Controllers\Tasks\Delete\DeleteTask;
 use App\Controllers\Tasks\DeleteAllTasks\DeleteAllTasks;
 use App\Controllers\Tasks\Update\UpdatePriority;
+use Application\Model\Todo\TaskRepository;
 
 try {
 	/**
@@ -21,7 +22,9 @@ try {
 	switch ($action) {
 		case 'add':
 			if (!isset($_POST['task'], $_POST['priority'])) throw new RuntimeException('Invalid input');
-			(new AddTask())->execute($_POST['task'], $_POST['priority']);
+			$name = $_POST['task'];
+			if ((new TaskRepository())->getTask($name)) throw new RuntimeException('Task already exists');
+			(new AddTask())->execute($name, $_POST['priority']);
 			break;
 
 		case 'delete':
@@ -47,5 +50,8 @@ try {
 
 	if (in_array($action, ['add', 'delete', 'update', 'delete_all'])) header('Location: index.php');
 } catch (Exception $e) {
-	echo $e->getMessage();
+	global $error;
+	$error = $e->getMessage();
+
+	(new Homepage())->execute();
 }

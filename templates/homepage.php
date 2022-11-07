@@ -39,6 +39,9 @@
 					</button>
 				</div>
 			</form>
+
+			<p class="error"><?php global $error;
+				echo $error; ?></p>
 			<div class="list">
 				<?php
 				global $tasks;

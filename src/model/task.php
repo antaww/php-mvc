@@ -42,7 +42,7 @@ class TaskRepository {
 		$statement->execute(compact('name'));
 	}
 
-	public function getTask(string $name): Task {
+	public function getTask(string $name): Task|false {
 		$statement = $this->databaseConnection->prepare('SELECT * FROM tasks WHERE name = :name');
 		$statement->execute(compact('name'));
 		return $statement->fetchObject(Task::class);
