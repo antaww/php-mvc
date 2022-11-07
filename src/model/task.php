@@ -10,6 +10,15 @@ use PDO;
 class Task {
 	public string $name;
 	public int $priority;
+
+	public function get_priority(): string {
+		return match ($this->priority) {
+			1 => 'low',
+			2 => 'medium',
+			3 => 'high',
+			default => 'unknown',
+		};
+	}
 }
 
 class TaskRepository {
@@ -39,6 +48,9 @@ class TaskRepository {
 		return $statement->fetchObject(Task::class);
 	}
 
+	/**
+	 * @return Task[]
+	 */
 	public function getTasks(): array {
 		return $this->databaseConnection->query('SELECT * FROM tasks ORDER BY priority DESC, name ASC')->fetchAll(PDO::FETCH_CLASS, Task::class);
 	}
