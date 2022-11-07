@@ -16,7 +16,7 @@
             </div>
             <form action="/index.php?add" method="post">
                 <div class="input">
-                    <input type="text" class="todotaker" id="inp" placeholder="task" name="task" required/>
+                    <input type="text" class="todotaker" id="inp" placeholder="task" name="task" maxlength="30" required/>
                     <select class="priority" name="priority" required>
                         <option value="">Priorité</option>
                         <option value="1">1</option>
