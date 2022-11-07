@@ -8,7 +8,8 @@ use Application\Model\Todo\TaskRepository;
 
 class Homepage {
 	public function execute(): void {
-		(new TaskRepository())->getTasks();
+        global $tasks;
+        $tasks = (new TaskRepository())->getTasks();
 
 		require('templates/homepage.php');
 	}
