@@ -40,7 +40,7 @@ class TaskRepository {
 	}
 
 	public function getTasks(): array {
-		return $this->databaseConnection->query('SELECT * FROM tasks ORDER BY priority ASC, name ASC')->fetchAll(PDO::FETCH_CLASS, Task::class);
+		return $this->databaseConnection->query('SELECT * FROM tasks ORDER BY priority DESC, name ASC')->fetchAll(PDO::FETCH_CLASS, Task::class);
 	}
 
 	public function updatePriority(string $name, int $priority): void {
