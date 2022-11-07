@@ -75,9 +75,13 @@ body {
     font-size: 17px;
     width: 100%;
 }
-.todotaker:focus {
+.todotaker:focus, .priority:focus {
     outline: none;
-    border: 1px solid var(--main-color);
+    border: .5px solid var(--main-color);
+}
+.input .priority {
+    width: 40%;
+    padding: .5rem;
 }
 button {
     background: none;
