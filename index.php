@@ -44,7 +44,7 @@
                 ini_set('display_errors', 1);
 
                 global $pdo;
-                require('pdo.php');
+                require('src/lib/database.php');
 
                 if (isset($_POST['task'])) {
                     $task = $_POST['task'];
